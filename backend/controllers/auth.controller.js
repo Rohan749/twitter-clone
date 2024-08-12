@@ -36,7 +36,6 @@ export const signupController = async (req, res, next) => {
             password: hashedPassword
         })
 
-
         if (newUser) {
             generateTokenAndSetCookie(newUser._id, res)
 
@@ -69,7 +68,7 @@ export const loginController = async (req, res, next) => {
         const user = await User.findOne({ username })
 
 
-        const validPassword = bcrypt.compare(password, user?.password || "")
+        const validPassword = await bcrypt.compare(password, user?.password )
 
         if (!validPassword || !user) {
             return res.status(400).json({ error: "Invalid credentials." })

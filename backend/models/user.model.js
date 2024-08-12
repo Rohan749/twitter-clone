@@ -10,6 +10,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    password: {
+        type: String,
+        required: true,
+    },
     email: {
         type: String,
         required: true,
@@ -30,7 +34,7 @@ const userSchema = new mongoose.Schema({
             
         }
     ],
-    profile: {
+    profileImg: {
         type: String,
         default: ""
     },

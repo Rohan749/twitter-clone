@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 
 export const protectedRoute = async (req, res, next) => {
     try {
-        console.log("Cookies:", req.cookies)
+        
         const verifyToken = req.cookies.jwt;
 
         if(!verifyToken) {
