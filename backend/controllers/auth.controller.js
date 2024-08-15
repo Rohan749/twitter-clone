@@ -67,9 +67,9 @@ export const loginController = async (req, res, next) => {
 
         const user = await User.findOne({ username })
 
-
         const validPassword = await bcrypt.compare(password, user?.password )
 
+        
         if (!validPassword || !user) {
             return res.status(400).json({ error: "Invalid credentials." })
         }
@@ -103,6 +103,7 @@ export const logoutController = (req, res, next) => {
         res.status(500).json({ error: "Error in logout controller" })
     }
 }
+
 
 export const getMe = async (req, res) => {
     try {
